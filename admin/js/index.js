@@ -1,3 +1,4 @@
+//获取用户信息
 function getUserInfo() {
     const token = localStorage.getItem('token');
     $.ajax({
@@ -14,3 +15,8 @@ function getUserInfo() {
 }
 
 getUserInfo();
+
+function loginOut() {
+    localStorage.removeItem('token');
+    location.replace('./login.html');
+}
