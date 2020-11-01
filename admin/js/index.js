@@ -10,6 +10,13 @@ function getUserInfo() {
             $('#user_info_icon').prop('src', userPic);
             $('#user_center_link_icon').prop('src', userPic);
             $('#user_info_name').html('欢迎&nbsp;&nbsp;' + nickname);
+        },
+        error: function (jqXHR, status) {
+            // console.log(jqXHR);
+            // console.log(status); error 
+            if (jqXHR.status === 403) {
+                location.replace('./login.html');
+            }
         }
     });
 }
