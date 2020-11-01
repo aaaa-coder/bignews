@@ -19,22 +19,26 @@
     function login() {
       const username = $('.input_txt').val();
       const password = $('.input_pass').val();
-      $.ajax({
-        type: "post",
-        url: "http://localhost:8080/api/v1/admin/user/login",
-        data: { username, password },
-        success: function (res) {
-          if (username && password) {
+      if (username && password) {
+        $.ajax({
+          type: "post",
+          url: "http://localhost:8080/api/v1/admin/user/login",
+          data: { username, password },
+          success: function (res) {
             if (res.code === 200) {
               localStorage.setItem('token', res.token);
               location.replace('./index.html');
             }
-          } else {
-            alert('用户名与密码不能为空');
           }
-        }
-      });
+        });
+      }
+      else {
+        $('.modal-body').text('用户名和密码不能为空');
+        // 弹出模态框
+        $('#loginModal').modal('show')
+      }
     }
+
   </script>
 </head>
 
@@ -58,7 +62,24 @@
       </div>
     </div>
   </div>
-
+  <!-- 模态框 -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">友情提示</h4>
+        </div>
+        <div class="modal-body">
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">朕知道了</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
