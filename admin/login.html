@@ -29,6 +29,8 @@
               localStorage.setItem('token', res.token);
               location.replace('./index.html');
             }
+          } else {
+            alert('用户名与密码不能为空');
           }
         }
       });
