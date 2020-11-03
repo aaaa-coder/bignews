@@ -14,8 +14,26 @@ function getUserInfo() {
         }
     })
 }
-getUserInfo();
 
 function updateUserInfo() {
-
+    const formData = new FormData($('#form')[0]);
+    for (let item of formData) {
+        console.log(item);
+    }
+    http.ajax({
+        type: 'post',
+        url: '/admin/user/edit',
+        data: formData,
+        success: function (res) {
+            // console.log(res);
+            $('.modal-body').text('信息修改完成');
+            // 弹出模态框
+            $('#loginModal').modal('show');
+            getUserInfo();
+        }
+    })
+    return false;
 }
+
+getUserInfo();
+
