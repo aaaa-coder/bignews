@@ -20,6 +20,7 @@ function updateUserInfo() {
     // for (let item of formData) {
     //     console.log(item);
     // }
+
     http.ajax({
         type: 'post',
         url: '/admin/user/edit',
@@ -29,7 +30,11 @@ function updateUserInfo() {
             $('.modal-body').text('信息修改完成');
             // 弹出模态框
             $('#loginModal').modal('show');
-            getUserInfo();
+            // console.log(formData.get('nickname'));
+            if (formData) {
+                const nickname = formData.get('nickname')
+                $('.sider .user_info span', parent.document).html('欢迎&nbsp;&nbsp;' + nickname);
+            }
         }
     })
     return false;
