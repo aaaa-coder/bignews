@@ -17,9 +17,9 @@ function getUserInfo() {
 
 function updateUserInfo() {
     const formData = new FormData($('#form')[0]);
-    // for (let item of formData) {
-    //     console.log(item);
-    // }
+    for (let item of formData) {
+        console.log(item);
+    }
 
     http.ajax({
         type: 'post',
@@ -31,10 +31,20 @@ function updateUserInfo() {
             // 弹出模态框
             $('#loginModal').modal('show');
             // console.log(formData.get('nickname'));
-            if (formData) {
-                const nickname = formData.get('nickname')
-                $('.sider .user_info span', parent.document).html('欢迎&nbsp;&nbsp;' + nickname);
+            // const UserImgUrl = formData.get('userPic');
+            const file = $('#exampleInputFile')[0].files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                $('#user_info_icon', parent.document).prop('src', url);
+                $('#user_center_link_icon', parent.document).prop('src', url);
             }
+
+            // console.log(UserImgUrl);
+            // $('#user_info_icon', parent.document).prop('src', formData.get('src'));
+            const nickname = formData.get('nickname');
+            $('.sider .user_info span', parent.document).html('欢迎&nbsp;&nbsp;' + nickname);
+
+
         }
     })
     return false;
@@ -46,7 +56,6 @@ function previewUserIcon() {
         const url = URL.createObjectURL(file);
         $('.col-sm-10 .user_pic').prop('src', url);
     }
-
 }
 
 getUserInfo();
