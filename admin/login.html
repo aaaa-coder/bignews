@@ -15,36 +15,6 @@
   <script src="./libs/jquery-1.12.4.min.js"></script>
   <!-- 引入bootstrap的js文件 -->
   <script src="./libs/bootstrap/js/bootstrap.min.js"></script>
-  <script>
-    function login() {
-      const username = $('.input_txt').val();
-      const password = $('.input_pass').val();
-      if (username && password) {
-        $.ajax({
-          type: "post",
-          url: "http://localhost:8080/api/v1/admin/user/login",
-          data: { username, password },
-          success: function (res) {
-            if (res.code === 200) {
-              localStorage.setItem('token', res.token);
-              location.replace('./index.html');
-            } else {
-              $('.modal-body').text('用户名或密码错误');
-              // 弹出模态框
-              $('#loginModal').modal('show');
-            }
-          },
-        });
-
-      }
-      else {
-        $('.modal-body').text('用户名和密码不能为空');
-        // 弹出模态框
-        $('#loginModal').modal('show');
-      }
-    }
-
-  </script>
 </head>
 
 <body>
@@ -86,5 +56,7 @@
     </div>
   </div>
 </body>
+<script src="./js/http.js"></script>
+<script src="./js/login.js"></script>
 
 </html>

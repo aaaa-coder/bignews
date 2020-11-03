@@ -14,4 +14,8 @@ function getUserInfo() {
         }
     })
 }
-getUserInfo()
+getUserInfo();
+
+function updateUserInfo() {
+
+}
