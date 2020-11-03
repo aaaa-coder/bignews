@@ -17,9 +17,9 @@ function getUserInfo() {
 
 function updateUserInfo() {
     const formData = new FormData($('#form')[0]);
-    for (let item of formData) {
-        console.log(item);
-    }
+    // for (let item of formData) {
+    //     console.log(item);
+    // }
     http.ajax({
         type: 'post',
         url: '/admin/user/edit',
@@ -33,6 +33,15 @@ function updateUserInfo() {
         }
     })
     return false;
+}
+//头像预览
+function previewUserIcon() {
+    const file = $('#exampleInputFile')[0].files[0];
+    if (file) {
+        const url = URL.createObjectURL(file);
+        $('.col-sm-10 .user_pic').prop('src', url);
+    }
+
 }
 
 getUserInfo();
