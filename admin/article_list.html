@@ -11,9 +11,12 @@
     <link rel="stylesheet" href="./css/iconfont.css">
     <link rel="stylesheet" href="./css/main.css">
     <script src="./libs/jquery-1.12.4.min.js"></script>
+    <!-- 引入分页插件 -->
+    <script src="./libs/jquery.twbsPagination.js"></script>
     <!-- 引入模板引擎js文件 -->
     <script src="./libs/template-web.js"></script>
     <script src="./js/http.js"></script>
+
 
     <script type="text/html" id="categoryTemplate">
         <option value="">所有分类</option>
@@ -80,6 +83,7 @@
                 </tbody>
             </table>
             <div class="row text-center">
+                <ul id="pagination"></ul>
             </div>
         </div>
     </div>

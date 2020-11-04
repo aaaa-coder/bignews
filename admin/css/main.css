@@ -382,7 +382,12 @@ body{
 .pagination{   
    margin:0;
 }
-
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
 .article_form{
     margin-top:20px;
 }
