@@ -43,15 +43,34 @@ function saveEditCategory() {
     const id = CatId;
     const name = $('#name').val();
     const slug = $('#slug').val();
-    console.log(this);
-    http.ajax({
-        type: 'post',
-        url: "/admin/category/edit",
-        data: { id, name, slug },
-        success: function (res) {
-            // console.log(res.msg);
-            hideEditCategory();
-            getAll();
-        }
-    })
+    // console.log(id);
+    // console.log(name, slug);
+    //因为共用一个模态框，通过判断是否有ID，判断是编辑还是新增，
+    if (id) {
+        http.ajax({
+            type: 'post',
+            url: "/admin/category/edit",
+            data: { id, name, slug },
+            success: function (res) {
+                // console.log(res.msg);
+                hideEditCategory();
+                getAll();
+            }
+        })
+    } else {
+        http.ajax({
+            type: 'post',
+            url: '/admin/category/add',
+            data: { name, slug },
+            success: (res) => {
+                hideEditCategory();
+                getAll();
+            }
+        })
+    }
+
+}
+
+function addCategory() {
+    $('.add_category_wraper').show();
 }
