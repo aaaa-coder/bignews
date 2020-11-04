@@ -42,6 +42,20 @@ function getArticleContent() {
         selector: "#richText"
     })
 }
+
+function articleImgChange() {
+
+    const file = $('#inputCover')[0].files[0];
+    // console.log(file);
+    // console.log($('#inputCover')[0]);
+    // console.log($('#inputCover')[0].files);
+    const url = URL.createObjectURL(file);
+    // const url = URL.createObjectURL(file);
+    // console.log(url);
+    $('.article_cover').prop('src', url);
+}
+
+
 //调用时间选择插件
 getDate();
 //调用内容插件
