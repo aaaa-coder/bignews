@@ -46,6 +46,7 @@ function initPagination(total) {
 }
 getCategoryList();
 
+//删除文章
 function delArticle(id) {
     http.ajax({
         type: 'post',
@@ -57,3 +58,4 @@ function delArticle(id) {
         }
     })
 }
+
