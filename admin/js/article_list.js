@@ -9,6 +9,7 @@ function getCategoryList() {
         }
     })
 }
+//查找信息
 function filter(page) {
     const id = $('#selCategory').val();
     const status = $('#selStatus').val();
@@ -25,6 +26,8 @@ function filter(page) {
     })
 }
 filter(1);
+//定义一个当前页面的全局变量
+let articlePage = 1;
 // 4、初始化分页组件
 function initPagination(total) {
     $('#pagination').twbsPagination({
@@ -35,9 +38,22 @@ function initPagination(total) {
         prev: '上一页',
         next: '下一页',
         onPageClick: (event, page) => {
+            //将当前页面的页码进行保存
+            articlePage = page;
             filter(page);
         }
     });
 }
 getCategoryList();
 
+function delArticle(id) {
+    http.ajax({
+        type: 'post',
+        url: "/admin/article/delete",
+        data: { id },
+        success: (res) => {
+            //重新刷新该页的内容
+            filter(articlePage);
+        }
+    })
+}
