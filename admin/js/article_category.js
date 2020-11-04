@@ -37,6 +37,10 @@ function updateCategory(item) {
 
 function hideEditCategory() {
     $('.add_category_wraper').hide();
+    //将id与输入框内容初始化
+    CatId = null;
+    $('#name').val('');
+    $('#slug').val('');
 }
 
 function saveEditCategory() {
