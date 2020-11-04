@@ -12,7 +12,7 @@ function getEditArticle() {
             $('#inputTitle').val(title);
             $('.article_cover').prop('src', cover);
             $('#myDate').val(date);
-            $('#content').val(content);
+            $('#richText').val(content);
         }
     })
 }
@@ -37,6 +37,15 @@ function getDate() {
 }
 getDate();
 
+function getArticleContent() {
+    tinymce.init({
+        selector: "#richText"
+    })
+}
+//调用时间选择插件
+getDate();
+//调用内容插件
+getArticleContent()
 //调用获取类别方法
 getArticleCategory()
 //调取获取编辑内容方法
