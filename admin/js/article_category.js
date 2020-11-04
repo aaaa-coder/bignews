@@ -26,3 +26,32 @@ function delCategory(id) {
     })
 }
 getAll();
+let CatId;
+//编辑功能
+function updateCategory(item) {
+    $('.add_category_wraper').show();
+    $('#name').val(item.name);
+    $('#slug').val(item.slug);
+    CatId = item.id;
+}
+
+function hideEditCategory() {
+    $('.add_category_wraper').hide();
+}
+
+function saveEditCategory() {
+    const id = CatId;
+    const name = $('#name').val();
+    const slug = $('#slug').val();
+    console.log(this);
+    http.ajax({
+        type: 'post',
+        url: "/admin/category/edit",
+        data: { id, name, slug },
+        success: function (res) {
+            // console.log(res.msg);
+            hideEditCategory();
+            getAll();
+        }
+    })
+}
