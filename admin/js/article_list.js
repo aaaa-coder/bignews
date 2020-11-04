@@ -24,6 +24,7 @@ function filter(page) {
         }
     })
 }
+filter(1);
 // 4、初始化分页组件
 function initPagination(total) {
     $('#pagination').twbsPagination({
