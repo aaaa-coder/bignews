@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/iconfont.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="./libs/jedate/css/jedate.css">
     <!-- jq -->
     <script src="./libs/jquery-1.12.4.min.js"></script>
     <!-- 模板引擎 -->
     <script src="./libs/template-web.js"></script>
-
+    <script src="./libs/jedate/js/jedate.js"></script>
     <script type="text/html" id="categoryTemplate">
         {{each data item index}}
         <option>{{item.name}}</option>
@@ -52,7 +53,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">发布时间：</label>
                     <div class="col-sm-4">
-                        <input type="text" id="date">
+                        <input id="myDate" type="text" placeholder="请选择" readonly>
                     </div>
                 </div>
                 <div class="form-group">

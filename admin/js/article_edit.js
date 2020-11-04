@@ -11,7 +11,7 @@ function getEditArticle() {
             const { title, cover, date, content } = res.data;
             $('#inputTitle').val(title);
             $('.article_cover').prop('src', cover);
-            $('#date').val(date);
+            $('#myDate').val(date);
             $('#content').val(content);
         }
     })
@@ -29,6 +29,13 @@ function getArticleCategory() {
         }
     })
 }
+//定义时间选择插件
+function getDate() {
+    jeDate('#myDate', {
+        format: 'YYYY-MM-DD', // 显示格式
+    });
+}
+getDate();
 
 //调用获取类别方法
 getArticleCategory()
