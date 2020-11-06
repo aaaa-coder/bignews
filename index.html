@@ -46,8 +46,9 @@
     </script>
 
     <script type="text/html" id="hotListTemplate">
-        {{each data}}
-        <li><span class="first">1</span><a href="#">神奇的水滴摄影，泡泡中的世界泡泡中的世界</a></li>
+        {{each data item index}}
+        <li><span class="first">{{index}}</span><a href="#">
+            {{item.title}}</a></li>
         {{/each}}
     </script>
 </head>
@@ -132,7 +133,6 @@
             <div class="common_wrap">
                 <h3><i class="fa fa-bar-chart"></i> 一周热门排行</h3>
                 <ul class="content_list hotrank_list">
-
                 </ul>
             </div>
             <div class="common_wrap">
