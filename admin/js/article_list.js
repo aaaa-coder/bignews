@@ -9,6 +9,20 @@ function getCategoryList() {
         }
     })
 }
+getCategoryList();
+
+// function getcatelist() {
+//     http.ajax({
+//         type: "get",
+//         url: "/admin/category/list",
+//         success: function (response) {
+//             // console.log(response);
+//             const Ruchresa = template('gettemples', response);
+//             $('#selCategory').html(Ruchresa);
+//         }
+//     });
+// }
+// getcatelist();
 //查找信息
 function filter(page) {
     const id = $('#selCategory').val();
@@ -44,7 +58,7 @@ function initPagination(total) {
         }
     });
 }
-getCategoryList();
+
 
 //删除文章
 function delArticle(id) {

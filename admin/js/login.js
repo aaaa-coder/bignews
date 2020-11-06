@@ -1,4 +1,3 @@
-
 function login() {
     const username = $('.input_txt').val();
     const password = $('.input_pass').val();

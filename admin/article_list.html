@@ -24,6 +24,13 @@
         <option value='{{item.id}}'>{{item.name}}</option>
     {{/each}}
     </script>
+    <!-- 
+    <script type="text/html" id="gettemples">
+        <option value="">所有分类</option>
+        {{each data item index }}
+        <option value="{{item.id}}">{{item.name}}</option>
+        {{/each}}
+    </script> -->
 
     <script type="text/html" id="searchTemplate">
          {{each data.data item index}}
@@ -79,7 +86,6 @@
                     </tr>
                 </thead>
                 <tbody>
-
                 </tbody>
             </table>
             <div class="row text-center">

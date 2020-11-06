@@ -38,7 +38,6 @@ function updateUserInfo() {
                 $('#user_info_icon', parent.document).prop('src', url);
                 $('#user_center_link_icon', parent.document).prop('src', url);
             }
-
             // console.log(UserImgUrl);
             // $('#user_info_icon', parent.document).prop('src', formData.get('src'));
             const nickname = formData.get('nickname');
